@@ -1,14 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Platform } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
+import { AdMobBanner } from 'expo-ads-admob';
 
 export default function App() {
+
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+
+      <AdMobBanner 
+        adUnitID="ca-app-pub-3940256099942544/2934735716"
+        style={styles.banner}
+        />
     </View>
+
   );
 }
 
@@ -19,4 +26,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  banner: {
+    alignItems: 'center',
+    position:'absolute',
+    bottom: 50,
+  }
 });
