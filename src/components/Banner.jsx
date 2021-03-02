@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
 
   banner: {
     alignItems: 'center',
-  
     bottom:50,
   }
 });

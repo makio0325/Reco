@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import { Text, TouchableOpacity, StyleSheet} from "react-native";
 import { AdMobRewarded } from "expo-ads-admob";
 
-export const Reward = () => {
-  const handlePress = React.useCallback(() => {
+export default function Reward () {
+  const handlePress = useCallback(() => {
     (async function showAd() {
       try {
         await AdMobRewarded.setAdUnitID('ca-app-pub-3940256099942544/1712485313')
@@ -15,7 +15,7 @@ export const Reward = () => {
     })();
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     AdMobRewarded.addEventListener("rewardedVideoDidRewardUser", () => {
       console.debug("Got reward");
     });
@@ -31,12 +31,11 @@ export const Reward = () => {
 
   return (
     <TouchableOpacity onPress={handlePress}>
-      <Text>Click here</Text>
+      <Text >もう一度ルーレットを回す【広告表示】</Text>
     </TouchableOpacity>
   );
 };
 
-export default Reward;
 
 //'ca-app-pub-3940256099942544/1712485313'
 
